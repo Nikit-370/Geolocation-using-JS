@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-location</title>
+
+</head>
+
+<body>
+
+    <p><h3>Click here to know your location</h3></p>
+    <button onclick="getLocation()">Click me!</button>
+
+    <p id="getcontent"></p>
+    <script>
+
+
+        var x = document.getElementById("getcontent");
+
+        function getLocation() 
+        {
+            if (navigator.geolocation) 
+            {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else 
+            {
+                x.innerHTML = "Location is not available";
+            }
+        }
+
+        function showPosition(position) 
+        {
+            x.innerHTML = "Lattitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
+        }
+
+    </script>
+
+</body>
+
+</html>
